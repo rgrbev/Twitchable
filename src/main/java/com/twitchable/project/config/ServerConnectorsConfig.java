@@ -1,3 +1,4 @@
+
 package com.twitchable.project.config;
 
 import org.apache.catalina.connector.Connector;
@@ -12,9 +13,11 @@ import org.springframework.core.io.ClassPathResource;
 import java.io.File;
 import java.io.IOException;
 
+
 /**
  * Created by ristes on 3/15/16.
  */
+
 @Configuration
 public class ServerConnectorsConfig {
 
@@ -63,3 +66,4 @@ public class ServerConnectorsConfig {
   }
 
 }
+

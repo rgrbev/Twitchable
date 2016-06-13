@@ -1,0 +1,89 @@
+
+     <section ng-model="viewstream" class="content-header">
+     <h1> {{viewstream.channelName}}</h1>
+      <ol class="breadcrumb">
+        <li><a href="/#/"><i class="fa fa-home"></i> Home</a></li>
+        <li><a href=""> Watch stream</a></li>
+        <li><a class="active">{{viewstream.channelName}}</a></li>
+      </ol>
+
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+
+      <!-- Your Page Content Here -->
+      
+      
+      <div class="row">
+      	<div class="col-md-8">
+      		<div class="col-md-12">
+      			<div class="embed-responsive embed-responsive-16by9">
+  					<iframe class="embed-responsive-item" src="{{viewstream.streamLink}}"></iframe>
+				</div>
+      		</div>
+      		<div class="col-md-12">
+      			<div class="box box-danger box-solid">
+            		<div class="box-header with-border">
+             			 <h3 class="box-title">{{viewstream.streamTitle}}</h3>
+            		</div>
+                    <div class="box-body">
+              			<div class="row">
+              				<div class="col-md-6">
+              					<div class="info-box">
+            						<span class="info-box-icon bg-red"><i class="fa fa-star-o"></i></span>
+            						<div class="info-box-content">
+			              				<span class="info-box-text">Rating</span>
+			              				<div ng-init="rating = viewstream.rating == 0 ? star.rating - 1 : viewstream.rating"></div>
+										<div ng-if="loggedinUser.data != ''" class="star-rating" star-rating="" rating-value="rating" data-max="5" on-rating-selected="rateFunction(rating)"></div>
+										<div ng-if="loggedinUser.data == ''"><small>You must be <a ng-href="/login/twitch" ng-click="loginUser()">logged in</a> to rate</small></div>
+										<span class="info-box-number" ng-if="rating == -1">0</span>
+										<span class="info-box-number" ng-if="rating != -1">{{rating}}</span>
+            						</div>
+          						</div>
+              				</div>
+              				<div class="col-md-6">
+              					<div class="info-box">
+            						<span class="info-box-icon bg-aqua"><i class="fa fa-eye"></i></span>
+            						<div class="info-box-content">
+			              				<span class="info-box-text">Viewers</span>
+			              				<span class="info-box-number">{{viewstream.numberViewers}}</span>
+            						</div>
+          						</div>
+              				</div>
+              				<div class="col-md-6">
+              					<div class="info-box">
+            						<span class="info-box-icon bg-green"><i class="fa fa-heart-o"></i></span>
+            						<div class="info-box-content">
+			              				<span class="info-box-text">Followers</span>
+			              				<span class="info-box-number">{{viewstream.numberFollowers}}</span>
+			              				<a href="{{viewstream.channelLink}}" class="btn btn-block btn-flat bg-olive btn-sm">Follow</a>
+            						</div>
+          						</div>
+              				</div>
+              				<div class="col-md-6">
+              					<div class="info-box">
+            						<span class="info-box-icon bg-purple"><i class="fa fa-user-plus"></i></span>
+            						<div class="info-box-content">
+			              				<span class="info-box-text" style="color:white;">S</span>
+			              				<span class="info-box-number">$4.99</span>
+			              				<a href="{{viewstream.channelLink}}" class="btn btn-block btn-flat bg-purple btn-sm">Subscribe</a>
+            						</div>
+          						</div>
+              				</div>
+              			</div>
+            		</div>
+            		
+          		</div>
+      		</div>
+      	</div>
+      	<div class="col-md-4">
+      		<iframe class="embed-responsive-item" frameborder="0" scrolling="yes" id="chat_embed" ng-src="{{viewstream.chatLink}}" height="750" width="470"></iframe>
+      	</div>
+      </div>
+      
+      
+  
+    </section>
+    <!-- /.content -->
+

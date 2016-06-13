@@ -1,0 +1,74 @@
+
+    <section class="content-header">
+      <h1>
+        Search results
+      </h1>
+      <ol class="breadcrumb">
+        <li><a href="/#/"><i class="fa fa-home"></i> Home</a></li>
+        <li><a href=""> Search results</a></li>
+      </ol>
+
+    </section>
+
+    <!-- Main content -->
+   <section class="content">
+
+      <!-- Your Page Content Here -->
+      <us-spinner spinner-theme="bigBlue"></us-spinner>
+      <div ng-if="message != ''" class="callout callout-warning">
+                <h4>{{message}}</h4>
+      </div>
+      <div ng-model="channels" class="row">
+      <div class="col-md-4" ng-repeat="channel in channels">
+          <!-- Widget: user widget style 1 -->
+          <div class="box box-widget widget-user">
+            <!-- Add the bg color to the header using any of the bg-* classes -->
+            <div class="widget-user-header bg-black" style="background: url('./app/images/abstract-triangle.png') center center;">
+              <h3 class="widget-user-username">{{channel.displayName}}</h3>
+            </div>
+            <div class="widget-user-image">
+              <img ng-if="channel.logo != 'null'" class="img-circle" ng-src="{{channel.logo}}"/>
+              <img ng-if="channel.logo == 'null'" class="img-circle" src="http://u.o0bc.com/avatars/no-user-image.gif" />
+            </div>
+            <div class="box-footer">
+              <div class="row">
+                <div class="col-sm-4 border-right">
+                  <div class="description-block">
+                    <h5 class="description-header">{{channel.followersNumber}}</h5>
+                    <span class="description-text">FOLLOWERS</span>
+                  </div>
+                  <!-- /.description-block -->
+                </div>
+                <div class="col-sm-4 border-right">
+                  <div class="description-block">
+                  <h5 class="description-header"><i class="fa fa-feed"></i></h5>
+                    <a href="" ng-click="setStreamChannel(channel)" class="description-text">
+              			Watch Stream
+            		</a>
+                  </div>
+                  <!-- /.description-block -->
+                </div>
+                 <div class="col-sm-4">
+                  <div class="description-block">
+                  <h5 class="description-header"><i class="fa fa-twitch"></i></h5>
+                    <a ng-href="{{channel.url}}" class="description-text">
+              			Visit channel
+            		</a>
+                  </div>
+                  <!-- /.description-block -->
+                </div>
+                
+                <!-- /.col -->
+              </div>
+              <!-- /.row -->
+            </div>
+          </div>
+          <!-- /.widget-user -->
+        </div>
+      </div>
+     
+
+
+    </section>
+    <!-- /.content -->
+
