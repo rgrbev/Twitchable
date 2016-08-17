@@ -5,7 +5,9 @@ angular.module('twitchableFrontEndApp')
   .directive('recommended', function () {
 	  return {
 			restrict : 'E',
-			template : '<div ng-repeat="rec in $storage.recommendedChannels | limitTo:3 " class="user-panel bg-black-active color-palette">'
+			template : 
+				'<div class="user-panel text-center" ng-if="$storage.recommendedChannels.length == 0"><img ng-src="http://1abxf1rh6g01lhm2riyrt55k.wpengine.netdna-cdn.com/wp-content/themes/makeblog/images/spinner_60.gif" height="30px" width="30px" /><br /><small class="text-light-blue">Loading</small></div>'
+				+'<div ng-repeat="rec in $storage.recommendedChannels | limitTo:3 " class="user-panel bg-black-active color-palette">'
 	        +'<div class="pull-left image">'
 	         + '<img ng-if="rec.logo != ' + "'null'" + '" ng-src="{{rec.logo}}" class="img-circle" alt="User Image"/>'
 	         + '<img ng-if="rec.logo == ' + "'null'" + '" ng-src="http://u.o0bc.com/avatars/no-user-image.gif" class="img-circle" alt="User Image"/>'

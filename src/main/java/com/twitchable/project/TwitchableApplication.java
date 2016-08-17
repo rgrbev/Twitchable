@@ -6,14 +6,10 @@ import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.context.web.SpringBootServletInitializer;
 
 @SpringBootApplication
-public class TwitchableApplication extends SpringBootServletInitializer {
+public class TwitchableApplication  {
 
 	public static void main(String[] args) {
 		SpringApplication.run(TwitchableApplication.class, args);
 	}
 
-	@Override
-	protected SpringApplicationBuilder configure(SpringApplicationBuilder builder) {
-		return builder.sources(TwitchableApplication.class);
-	}
 }
